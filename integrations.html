@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- ===== INTEGRATIONS.HTML ===== -->
+<!-- Primary Meta Tags -->
+<title>VectorFlow Integrations · Connect Slack, Notion, GitHub & 50+ tools</title>
+<meta name="title" content="VectorFlow Integrations · Connect Slack, Notion, GitHub & 50+ tools">
+<meta name="description" content="VectorFlow integrates with the tools you already use: Slack, Notion, GitHub, Google Workspace, Trello, and 50+ platforms. Sync data across your stack.">
+<meta name="keywords" content="integrations, Slack integration, Notion integration, GitHub integration, Google Workspace, Trello, Zapier, Airtable, Figma, app connections">
+<link rel="icon" type="image/png" sizes="32x32" href="site-icon.png">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<!-- <meta property="og:url" content="https://www.vectorflow.ai/integrations"> -->
+<meta property="og:title" content="VectorFlow Integrations · Connect your entire stack">
+<meta property="og:description" content="Browse 50+ native integrations. Connect Slack, Notion, GitHub, Google Workspace and more. Build cross‑app workflows in minutes.">
+<!-- <meta property="og:image" content="https://www.vectorflow.ai/assets/og-integrations.jpg"> -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<!-- <meta property="twitter:url" content="https://www.vectorflow.ai/integrations"> -->
+<meta property="twitter:title" content="VectorFlow Integrations · 50+ tools supported">
+<meta property="twitter:description" content="Connect all your tools with VectorFlow. Native integrations for Slack, Notion, GitHub, and more.">
+<!-- <meta property="twitter:image" content="https://www.vectorflow.ai/assets/twitter-integrations.jpg"> -->
+
+<!-- Additional SEO -->
+<meta name="robots" content="/, follow">
+<!-- <link rel="canonical" href="https://www.vectorflow.ai/integrations"> -->
+  <!-- Bootstrap 5 + Icons + primary theme -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Google Fonts: Inter (primary) + Space Grotesk (accents) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- AOS (animate on scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- custom styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+/* Ensure integration items maintain proper styling when filtered */
+.integration-item {
+  transition: opacity 0.3s ease;
+}
+
+/* Style for the no results message */
+#no-results-message {
+  transition: all 0.3s ease;
+}
+/* Add this to your style.css file */
+
+/* Enhanced filter buttons */
+.filter-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: 2px solid transparent;
+  user-select: none;
+}
+
+.filter-btn.bg-dark {
+  background: linear-gradient(135deg, #FF8A00, #FFB347) !important;
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 10px rgba(255, 138, 0, 0.3);
+}
+
+.filter-btn.bg-white {
+  background: white !important;
+  color: #333 !important;
+  border: 2px solid #e0e0e0 !important;
+}
+
+.filter-btn.bg-white:hover {
+  border-color: #FF8A00 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(255, 138, 0, 0.1);
+}
+
+.filter-btn.bg-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255, 138, 0, 0.4);
+}
+
+/* Search input styling */
+.input-group:focus-within {
+  box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.25);
+  border-radius: 50px;
+}
+
+.input-group .form-control:focus {
+  box-shadow: none;
+  border-color: #dee2e6;
+}
+
+.input-group .input-group-text {
+  border-radius: 50px 0 0 50px;
+}
+
+.input-group .form-control {
+  border-radius: 0 50px 50px 0;
+}
+
+/* No results message animation */
+#no-results-message {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+ <!-- Sticky navbar with transparent / solid effect (js handles scroll) -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index">
+        <img src="logo.png" alt="VectorFlow" height="32" class="d-inline-block align-text-top" onerror="this.src='https://placehold.co/140x32/0f172a/white?text=VectorFlow'; this.onerror=null;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+          <li class="nav-item"><a class="nav-link " href="index">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="product">Product</a></li>
+          <li class="nav-item"><a class="nav-link active" href="integrations">Integrations</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="resources">Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Log in</a>
+          <a href="#" class="btn btn-primary rounded-pill px-4" style="background: linear-gradient(135deg, #FF8A00, #FFB347); border: none;">Start trial</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Integrations Hero -->
+    <section class="hero-section pt-5">
+      <div class="container">
+        <div class="row align-items-center min-vh-50 py-5" style="min-height: 60vh;">
+          <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+            <h1 class="display-4 fw-bold mb-3">Connect <span class="text-gradient">All Your Tools</span></h1>
+            <p class="lead text-secondary-emphasis mb-4">VectorFlow integrates with the tools you already use. Sync data across Slack, Notion, GitHub, and 50+ platforms.</p>
+            <!-- search bar -->
+            <div class="d-flex justify-content-center">
+              <div class="input-group w-50">
+                <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control border-start-0" placeholder="Search integrations (e.g. Slack, Notion...)" aria-label="Search integrations">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integration Grid (filterable concept) -->
+    <section class="py-5 bg-light" id="integration-grid">
+      <div class="container">
+    <!-- category pills with data attributes -->
+<div class="d-flex justify-content-center gap-2 mb-5 flex-wrap">
+  <span class="badge filter-btn bg-dark text-white px-4 py-2 rounded-pill" data-filter="all">All</span>
+  <span class="badge filter-btn bg-white text-dark px-4 py-2 rounded-pill border" data-filter="productivity">Productivity</span>
+  <span class="badge filter-btn bg-white text-dark px-4 py-2 rounded-pill border" data-filter="developer">Developer</span>
+  <span class="badge filter-btn bg-white text-dark px-4 py-2 rounded-pill border" data-filter="communication">Communication</span>
+  <span class="badge filter-btn bg-white text-dark px-4 py-2 rounded-pill border" data-filter="analytics">Analytics</span>
+</div>
+
+        <!-- row of integrations (expanded cards) -->
+        <div class="row g-4">
+          <!-- Slack -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="50">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-slack fs-1 me-3" style="color:#4A154B;"></i>
+                  <div><h5 class="mb-0">Slack</h5><small class="text-secondary">messaging</small></div>
+                </div>
+                <p class="text-secondary small">Triggers on new messages, replies, or emoji. Post automated updates to channels.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">messages, channels</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Notion -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-file-text fs-1 me-3" style="color:#000;"></i>
+                  <div><h5 class="mb-0">Notion</h5><small class="text-secondary">docs & databases</small></div>
+                </div>
+                <p class="text-secondary small">Create database entries, update pages, or sync content from other apps.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">pages, databases</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- GitHub -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="150">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-github fs-1 me-3"></i>
+                  <div><h5 class="mb-0">GitHub</h5><small class="text-secondary">code & issues</small></div>
+                </div>
+                <p class="text-secondary small">Automate issues, PR reviews, and sync with project management tools.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">issues, PRs</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Google Workspace -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-google fs-1 me-3" style="color:#4285F4;"></i>
+                  <div><h5 class="mb-0">Google Workspace</h5><small class="text-secondary">calendar, gmail</small></div>
+                </div>
+                <p class="text-secondary small">Sync calendar events, automate email responses, and manage sheets.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">calendar, mail</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Trello -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="250">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-trello fs-1 me-3" style="color:#0079BF;"></i>
+                  <div><h5 class="mb-0">Trello</h5><small class="text-secondary">project boards</small></div>
+                </div>
+                <p class="text-secondary small">Create cards, move lists, and attach information automatically.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">cards, boards</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Zapier -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-lightning-charge fs-1 me-3" style="color:#FF4A00;"></i>
+                  <div><h5 class="mb-0">Zapier</h5><small class="text-secondary">5000+ apps</small></div>
+                </div>
+                <p class="text-secondary small">Connect VectorFlow to thousands of apps via Zapier triggers and actions.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">bridge</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Airtable -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="350">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-grid-3x3-gap-fill fs-1 me-3" style="color:#18BFFF;"></i>
+                  <div><h5 class="mb-0">Airtable</h5><small class="text-secondary">low‑code database</small></div>
+                </div>
+                <p class="text-secondary small">Sync records, update bases, and trigger workflows on new entries.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">bases, tables</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Figma -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-palette fs-1 me-3" style="color:#A259FF;"></i>
+                  <div><h5 class="mb-0">Figma</h5><small class="text-secondary">design</small></div>
+                </div>
+                <p class="text-secondary small">Notify on comments, sync design tokens, or archive versions.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">files, comments</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Linear -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="450">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-bar-chart-line fs-1 me-3" style="color:#5E6AD2;"></i>
+                  <div><h5 class="mb-0">Linear</h5><small class="text-secondary">issue tracking</small></div>
+                </div>
+                <p class="text-secondary small">Create issues, sync project status, and automate engineering workflows.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">issues, cycles</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Typeform -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-ui-checks fs-1 me-3" style="color:#f7a81b;"></i>
+                  <div><h5 class="mb-0">Typeform</h5><small class="text-secondary">forms</small></div>
+                </div>
+                <p class="text-secondary small">Forward form responses to Notion, Slack, or create tasks.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">responses</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Pipedrive -->
+          <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="550">
+            <div class="card integration-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="d-flex align-items-center mb-3">
+                  <i class="bi bi-currency-dollar fs-1 me-3" style="color:#00A2E8;"></i>
+                  <div><h5 class="mb-0">Pipedrive</h5><small class="text-secondary">CRM</small></div>
+                </div>
+                <p class="text-secondary small">Sync deals, contacts, and automate sales follow‑ups.</p>
+                <div class="mt-auto d-flex justify-content-between align-items-center">
+                  <span class="badge bg-light text-dark">deals, people</span>
+                  <a href="#" class="stretched-link text-decoration-none" style="color:#FF8A00;">Connect →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- row -->
+
+        <!-- show more (static) -->
+        <div class="text-center mt-5">
+          <a href="#" class="btn btn-outline-secondary rounded-pill px-5">View all 50+ integrations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example automation flow -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Cross‑app workflows in one click</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="workflow-animation-panel p-4 bg-white shadow rounded-4 border" data-aos="zoom-in">
+              <div class="workflow-steps">
+                <div class="step-circle"><i class="bi bi-slack me-2"></i>Slack</div>
+                <div class="step-arrow glowing">→</div>
+                <div class="step-circle ai"><i class="bi bi-robot me-2"></i>AI filter</div>
+                <div class="step-arrow glowing">→</div>
+                <div class="step-circle"><i class="bi bi-file-text me-2"></i>Notion</div>
+                <div class="step-arrow glowing">→</div>
+                <div class="step-circle"><i class="bi bi-github me-2"></i>GitHub</div>
+              </div>
+              <div class="bg-light p-3 rounded mt-4 d-flex align-items-center">
+                <i class="bi bi-stars fs-4 me-2" style="color:#FF8A00;"></i>
+                <span class="small">AI suggestion: Auto‑label GitHub issue based on Notion priority</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard preview + API -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 mb-4" data-aos="fade-right">
+            <h2 class="fw-bold mb-3">Monitor all connections</h2>
+            <p class="text-secondary">See which integrations are active, sync history, and error logs. Manage everything from one dashboard.</p>
+            <div class="d-flex gap-3 mt-4">
+              <span class="badge bg-white text-dark p-2 border"><i class="bi bi-check-circle-fill text-success me-1"></i> Slack active</span>
+              <span class="badge bg-white text-dark p-2 border"><i class="bi bi-check-circle-fill text-success me-1"></i> Notion connected</span>
+              <span class="badge bg-white text-dark p-2 border"><i class="bi bi-exclamation-triangle-fill text-warning me-1"></i> GitHub rate limit</span>
+            </div>
+          </div>
+          <div class="col-md-6" data-aos="fade-left">
+            <div class="dashboard-preview bg-white p-4 shadow-lg rounded-4">
+              <div class="d-flex justify-content-between">
+                <span><i class="bi bi-diagram-3 me-2"></i>Integration status</span>
+                <span class="badge bg-success">24 active</span>
+              </div>
+              <div class="mt-3">
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-2">
+                  <span><i class="bi bi-slack me-2"></i>Slack</span>
+                  <span class="small text-success">● live</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mt-2">
+                  <span><i class="bi bi-file-text me-2"></i>Notion</span>
+                  <span class="small text-success">● live</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-2 mt-2">
+                  <span><i class="bi bi-github me-2"></i>GitHub</span>
+                  <span class="small text-warning">rate limit</span>
+                </div>
+              </div>
+              <div class="mt-3 small text-secondary"><i class="bi bi-arrow-repeat me-1"></i>Last sync: 2 minutes ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
+      <div class="container text-center py-5">
+        <h2 class="display-5 fw-bold text-white mb-4" data-aos="fade-up">Build your connected workflow</h2>
+        <a href="#" class="btn btn-lg rounded-pill px-5 py-3" style="background: linear-gradient(135deg,#FF8A00,#FFB347); color:white; border:none;">Start Free Trial</a>
+        <a href="#" class="btn btn-lg btn-outline-light rounded-pill px-5 py-3 ms-3">View integrations</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white pt-5 border-top">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Company info - full width on mobile -->
+            <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+                <img src="logo.png" alt="VectorFlow" height="28" onerror="this.src='https://placehold.co/120x28/0f172a/white?text=VectorFlow'">
+                <p class="small text-secondary mt-3 pe-lg-4">AI workflow automation for modern teams. Streamline your processes with intelligent automation.</p>
+            </div>
+            
+            <!-- Link columns - stack on mobile, 2 columns on tablet -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+                <h6 class="fw-bold mb-3">Product</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Workflow Builder</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Integrations</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Pricing</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+                <h6 class="fw-bold mb-3">Resources</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Blog</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Guides</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Docs</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+                <h6 class="fw-bold mb-3">Company</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">About</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Careers</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+                <h6 class="fw-bold mb-3">Legal</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Privacy</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Terms</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr class="my-4">
+        
+        <!-- Bottom bar - stacks on mobile -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center py-3">
+            <span class="small text-secondary order-2 order-md-1 mt-3 mt-md-0">© 2025 VectorFlow. All rights reserved.</span>
+            <div class="social-icons order-1 order-md-2">
+                <a href="#" class="text-secondary me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                <a href="#" class="text-secondary me-3"><i class="bi bi-linkedin fs-5"></i></a>
+                <a href="#" class="text-secondary"><i class="bi bi-github fs-5"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- Bootstrap + AOS + custom -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+    // sticky navbar background change
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        nav.classList.add('navbar-solid', 'shadow-sm');
+        nav.classList.remove('navbar-transparent');
+      } else {
+        nav.classList.remove('navbar-solid', 'shadow-sm');
+        nav.classList.add('navbar-transparent');
+      }
+    });
+    // active nav handling (simulated for integrations page)
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if(link.href.includes('integrations.html')) link.classList.add('active');
+    });
+  </script>
+  <script>
+// Filter functionality for integrations
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const integrationItems = document.querySelectorAll('.integration-item');
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active state
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-dark', 'text-white');
+        btn.classList.add('bg-white', 'text-dark');
+      });
+      this.classList.remove('bg-white', 'text-dark');
+      this.classList.add('bg-dark', 'text-white');
+      
+      const filterValue = this.getAttribute('data-filter');
+      
+      integrationItems.forEach(item => {
+        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+});
+</script>
+ <!-- Add this updated filter script - replace both existing script blocks with this one -->
+<script>
+// Filter and Search functionality for integrations
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const integrationCards = document.querySelectorAll('.col-md-4.col-sm-6'); // Get the column divs
+  const searchInput = document.querySelector('.form-control[placeholder*="Search integrations"]');
+  const gridContainer = document.querySelector('.row.g-4');
+  
+  // Add data-category attributes to integration cards
+  integrationCards.forEach(card => {
+    const cardTitle = card.querySelector('h5')?.textContent || '';
+    
+    // Assign categories based on the integration type
+    if (cardTitle.includes('Slack') || cardTitle.includes('Google') || cardTitle.includes('Typeform')) {
+      card.setAttribute('data-category', 'communication');
+    } else if (cardTitle.includes('Notion') || cardTitle.includes('Trello') || cardTitle.includes('Airtable')) {
+      card.setAttribute('data-category', 'productivity');
+    } else if (cardTitle.includes('GitHub') || cardTitle.includes('Linear') || cardTitle.includes('Figma')) {
+      card.setAttribute('data-category', 'developer');
+    } else if (cardTitle.includes('Zapier') || cardTitle.includes('Pipedrive')) {
+      card.setAttribute('data-category', 'analytics');
+    } else {
+      card.setAttribute('data-category', 'other');
+    }
+    
+    // Add integration-item class
+    card.classList.add('integration-item');
+  });
+
+  // Create no results message
+  const noResultsMessage = document.createElement('div');
+  noResultsMessage.className = 'col-12 text-center py-5';
+  noResultsMessage.innerHTML = '<p class="text-secondary mb-0 fs-5">🔍 No integrations found matching your criteria.</p><p class="text-secondary small mt-2">Try adjusting your search or filter.</p>';
+  noResultsMessage.style.display = 'none';
+  gridContainer.parentNode.insertBefore(noResultsMessage, gridContainer.nextSibling);
+
+  // Main filter function
+  function filterIntegrations() {
+    const activeFilter = document.querySelector('.filter-btn.bg-dark')?.getAttribute('data-filter') || 'all';
+    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
+    
+    let visibleCount = 0;
+    
+    integrationCards.forEach(card => {
+      const category = card.getAttribute('data-category');
+      const cardTitle = card.querySelector('h5')?.textContent.toLowerCase() || '';
+      const cardDesc = card.querySelector('p')?.textContent.toLowerCase() || '';
+      const cardTags = card.querySelector('.badge.bg-light')?.textContent.toLowerCase() || '';
+      
+      // Check category match
+      const matchesCategory = activeFilter === 'all' || category === activeFilter;
+      
+      // Check search match
+      const matchesSearch = searchTerm === '' || 
+                           cardTitle.includes(searchTerm) || 
+                           cardDesc.includes(searchTerm) || 
+                           cardTags.includes(searchTerm);
+      
+      // Show or hide card
+      if (matchesCategory && matchesSearch) {
+        card.style.display = '';
+        visibleCount++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    
+    // Show/hide no results message
+    noResultsMessage.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  // Filter button click handlers
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Update active state
+      filterButtons.forEach(btn => {
+        btn.classList.remove('bg-dark', 'text-white');
+        btn.classList.add('bg-white', 'text-dark', 'border');
+      });
+      this.classList.remove('bg-white', 'text-dark', 'border');
+      this.classList.add('bg-dark', 'text-white');
+      
+      // Apply filters
+      filterIntegrations();
+    });
+  });
+
+  // Search input handler with debounce
+  if (searchInput) {
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        filterIntegrations();
+      }, 300);
+    });
+
+    // Handle search clear (when user clicks the X in search field)
+    searchInput.addEventListener('search', function() {
+      filterIntegrations();
+    });
+  }
+
+  // Initialize - ensure first run works
+  filterIntegrations();
+});
+</script>
+</body>
+</html>

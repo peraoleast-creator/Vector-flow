@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ===== PRICING PAGE – VectorFlow · AI workflow automation ===== -->
+  <title>VectorFlow · Pricing — simple, scalable plans</title>
+  <meta name="description" content="Start free, then choose Starter, Growth or Enterprise. Unlimited workflows, AI suggestions, team collaboration – cancel anytime.">
+  <meta name="keywords" content="AI automation pricing, workflow cost, startup SaaS plans, free trial">
+  <link rel="icon" type="image/png" sizes="32x32" href="site-icon.png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="VectorFlow · Pricing for modern teams">
+  <meta property="og:description" content="Transparent pricing with a free tier. AI workflow automation for every team size.">
+  <!-- <meta property="og:image" content="https://www.vectorflow.ai/assets/og-pricing.jpg"> -->
+
+  <!-- Twitter -->
+  <meta property="twitter:title" content="VectorFlow · AI automation pricing">
+  <meta property="twitter:description" content="Simple, usage‑friendly plans. Start free — no credit card required.">
+  
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="VectorFlow">
+  <meta name="language" content="English">
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Google Fonts: Inter + Space Grotesk -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- AOS (animate on scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- main style (reusing same design system) -->
+  <link rel="stylesheet" href="style.css">
+  <!-- inline micro adjustments for pricing page -->
+  <style>
+    /* Pricing specific enhancements – extends global style.css */
+    .billing-toggle .btn-outline-secondary.active {
+      background: linear-gradient(135deg, #FF8A00, #FFB347);
+      color: white;
+      border-color: transparent;
+      box-shadow: var(--shadow-sm);
+    }
+    .pricing-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card.popular {
+      transform: scale(1.02);
+      border: 2px solid transparent;
+      background: linear-gradient(white, white) padding-box, 
+                  var(--gradient-primary) border-box;
+      box-shadow: 0 25px 40px -12px rgba(255,138,0,0.25);
+    }
+    .pricing-card.popular .popular-badge {
+      position: absolute;
+      top: 1.2rem;
+      right: -2.5rem;
+      background: var(--gradient-primary);
+      color: white;
+      padding: 0.4rem 3rem;
+      transform: rotate(45deg);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: var(--shadow-md);
+      z-index: 3;
+    }
+    .pricing-card .card-body {
+      padding: 2.5rem 2rem;
+    }
+    .price-amount {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      font-family: var(--font-display);
+    }
+    .price-period {
+      color: var(--gray-500);
+      font-weight: 400;
+    }
+    .feature-list li {
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .feature-list i {
+      color: #FF8A00;
+      font-size: 1.2rem;
+    }
+    .btn-pricing {
+      width: 100%;
+      padding: 0.8rem;
+      font-weight: 600;
+      border-radius: 50px;
+    }
+    .bg-soft-gradient {
+      background: linear-gradient(145deg, #fcf9f6, #ffffff);
+    }
+    .faq-section .accordion-button:not(.collapsed) {
+      background: rgba(255, 138, 0, 0.05);
+      color: #0f172a;
+      box-shadow: none;
+    }
+    .faq-section .accordion-button:focus {
+      box-shadow: none;
+      border-color: rgba(255,138,0,0.3);
+    }
+    .faq-section .accordion-button::after {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FF8A00'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    }
+    /* toggle switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 56px;
+      height: 28px;
+      margin: 0 0.75rem;
+    }
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e2e8f0;
+      transition: .3s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .3s;
+      border-radius: 50%;
+      box-shadow: var(--shadow-sm);
+    }
+    input:checked + .slider {
+      background: linear-gradient(90deg, #FF8A00, #FFB347);
+    }
+    input:checked + .slider:before {
+      transform: translateX(28px);
+    }
+    .save-badge {
+      background: #FFB34720;
+      color: #FF8A00;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 50px;
+      margin-left: 0.5rem;
+    }
+    @media (max-width: 768px) {
+      .pricing-card.popular {
+        transform: scale(1);
+      }
+      .popular-badge {
+        right: -2rem !important;
+        padding: 0.3rem 2.5rem !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky navbar (identical to home, active state = Pricing) -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index">
+        <img src="logo.png" alt="VectorFlow" height="32" onerror="this.src='https://placehold.co/140x32/0f172a/white?text=VectorFlow';">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+          <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="product">Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="integrations">Integrations</a></li>
+          <li class="nav-item"><a class="nav-link active" href="pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="resources">Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Log in</a>
+          <a href="#" class="btn btn-primary rounded-pill px-4" style="background: linear-gradient(135deg, #FF8A00, #FFB347); border: none;">Start trial</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN PRICING PAGE CONTENT -->
+  <main class="mt-5 pt-5">
+    <!-- Hero / Pricing intro -->
+    <section class="py-5 bg-soft-gradient border-bottom">
+      <div class="container py-4" data-aos="fade-up">
+        <div class="text-center mx-auto" style="max-width: 700px;">
+          <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2 mb-3">
+            <i class="bi bi-cpu me-1"></i> Simple, fair pricing
+          </span>
+          <h1 class="display-4 fw-bold mb-3">Pricing for <span class="text-gradient">every stage</span></h1>
+          <p class="lead text-secondary mb-4">Start with a 14‑day free trial (no credit card). Scale with your team.</p>
+          
+         <!-- Monthly / Yearly toggle (Bootstrap + custom) -->
+<div class="d-flex align-items-center justify-content-center mt-4">
+  <span class="fw-medium" style="color: #0f172a;">Monthly</span>
+  <label class="switch mx-2">
+    <input type="checkbox" id="billingToggle">
+    <span class="slider"></span>
+  </label>
+  <span class="fw-medium" style="color: #0f172a;">Yearly <span class="save-badge">save 20%</span></span>
+</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Cards (3 columns) -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+
+          <!-- Starter Plan -->
+          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card pricing-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="mb-4">
+                  <i class="bi bi-rocket-takeoff fs-1" style="color: #FF8A00;"></i>
+                  <h3 class="fw-bold mt-3">Starter</h3>
+                  <p class="text-secondary">For individuals & small projects</p>
+                </div>
+                <div class="mb-4">
+                  <span class="price-amount" id="starter-price">$19</span>
+                  <span class="price-period fs-5" id="starter-period">/month</span>
+                </div>
+                <ul class="feature-list list-unstyled mb-4">
+                  <li><i class="bi bi-check2-circle"></i> <span>5 active workflows</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Basic integrations (10 apps)</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>2 team members</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>AI suggestions (50/month)</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Email support</span></li>
+                </ul>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-outline-secondary btn-pricing rounded-pill">Start free trial</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Growth Plan (popular) -->
+          <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+            <div class="card pricing-card popular h-100 border-0 shadow-lg">
+              <div class="popular-badge">RECOMMENDED</div>
+              <div class="card-body d-flex flex-column">
+                <div class="mb-4">
+                  <i class="bi bi-graph-up-arrow fs-1" style="color: #FF8A00;"></i>
+                  <h3 class="fw-bold mt-3">Growth</h3>
+                  <p class="text-secondary">For startups & growing teams</p>
+                </div>
+                <div class="mb-4">
+                  <span class="price-amount" id="growth-price">$49</span>
+                  <span class="price-period fs-5" id="growth-period">/month</span>
+                </div>
+                <ul class="feature-list list-unstyled mb-4">
+                  <li><i class="bi bi-check2-circle"></i> <span><strong>Unlimited workflows</strong></span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>50+ integrations</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>10 team members</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span><strong>Unlimited AI suggestions</strong></span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Real-time monitoring logs</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Priority chat support</span></li>
+                </ul>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-primary btn-pricing rounded-pill" style="background: linear-gradient(135deg,#FF8A00,#FFB347); border:none;">Start free trial</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="col-lg-4 col-md-12" data-aos="zoom-in" data-aos-delay="300">
+            <div class="card pricing-card h-100 border-0 shadow-sm">
+              <div class="card-body d-flex flex-column">
+                <div class="mb-4">
+                  <i class="bi bi-buildings fs-1" style="color: #FF8A00;"></i>
+                  <h3 class="fw-bold mt-3">Enterprise</h3>
+                  <p class="text-secondary">For large orgs & custom needs</p>
+                </div>
+                <div class="mb-4">
+                  <span class="price-amount" id="enterprise-price">$149</span>
+                  <span class="price-period fs-5" id="enterprise-period">/month</span>
+                </div>
+                <ul class="feature-list list-unstyled mb-4">
+                  <li><i class="bi bi-check2-circle"></i> <span>Unlimited everything</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>SSO + advanced security</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Unlimited team members</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>Dedicated AI fine-tuning</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>SLA with 99.99% uptime</span></li>
+                  <li><i class="bi bi-check2-circle"></i> <span>24/7 phone & chat support</span></li>
+                </ul>
+                <div class="mt-auto">
+                  <a href="#" class="btn btn-outline-secondary btn-pricing rounded-pill">Contact sales</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Note: all plans include 14-day free trial -->
+        <p class="text-center text-secondary mt-5 small"><i class="bi bi-shield-check me-1" style="color:#FF8A00;"></i> All plans include a 14‑day free trial. No credit card required.</p>
+      </div>
+    </section>
+
+    <!-- Feature comparison / enterprise highlights (optional) -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+            <h2 class="fw-bold mb-3">Enterprise‑grade <span class="text-gradient">security & scale</span></h2>
+            <p class="text-secondary">Need SOC2, private Slack connect, or custom workflow limits? Our Enterprise plan adapts to your infrastructure.</p>
+            <ul class="list-unstyled mt-4">
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#FF8A00;"></i> Single sign‑on (Okta, Google Workspace)</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#FF8A00;"></i> Audit logs & role‑based access</li>
+              <li class="mb-2"><i class="bi bi-check-circle-fill me-2" style="color:#FF8A00;"></i> Custom AI model training</li>
+            </ul>
+            <a href="#" class="btn btn-outline-primary rounded-pill mt-2" style="border-color:#FF8A00; color:#FF8A00;">Talk to sales <i class="bi bi-arrow-right ms-1"></i></a>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <div class="bg-white p-4 rounded-4 shadow-sm border-start border-4" style="border-color:#FF8A00 !important;">
+              <div class="d-flex align-items-center mb-3">
+                <i class="bi bi-patch-check-fill fs-2 me-3" style="color:#FF8A00;"></i>
+                <div><strong class="fs-5">Volume discounts available</strong><br> <span class="small text-secondary">For 50+ seats, we offer custom pricing.</span></div>
+              </div>
+              <hr>
+              <div class="d-flex align-items-center">
+                <i class="bi bi-arrow-repeat fs-2 me-3" style="color:#FF8A00;"></i>
+                <div><strong class="fs-5">Switch plans anytime</strong><br> <span class="small text-secondary">Upgrade or downgrade with 1 click.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section (SaaS style) -->
+    <section class="py-5 bg-white">
+      <div class="container" style="max-width: 800px;">
+        <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Frequently asked questions</h2>
+        <div class="accordion faq-section" id="pricingFAQ">
+          <div class="accordion-item border-0 border-bottom">
+            <h2 class="accordion-header"><button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Can I cancel anytime?</button></h2>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ"><div class="accordion-body text-secondary">Yes. You can cancel your subscription at any time. No hidden fees.</div></div>
+          </div>
+          <div class="accordion-item border-0 border-bottom">
+            <h2 class="accordion-header"><button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What’s included in the free trial?</button></h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ"><div class="accordion-body text-secondary">Full access to Growth plan features for 14 days. No credit card required.</div></div>
+          </div>
+          <div class="accordion-item border-0 border-bottom">
+            <h2 class="accordion-header"><button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Do you offer discounts for nonprofits?</button></h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ"><div class="accordion-body text-secondary">Yes, we offer 30% off for verified nonprofits. Contact our sales team.</div></div>
+          </div>
+          <div class="accordion-item border-0 border-bottom">
+            <h2 class="accordion-header"><button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Can I pay by invoice?</button></h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ"><div class="accordion-body text-secondary">Annual Enterprise plans can be paid via invoice (net 30).</div></div>
+          </div>
+          <div class="accordion-item border-0 border-bottom">
+            <h2 class="accordion-header"><button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">What payment methods do you accept?</button></h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#pricingFAQ"><div class="accordion-body text-secondary">All major credit cards, PayPal, and bank transfers for Enterprise.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA similar to home (gradient dark) -->
+    <section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
+      <div class="container text-center py-4">
+        <h2 class="display-5 fw-bold text-white mb-4" data-aos="fade-up">Start automating in minutes</h2>
+        <a href="#" class="btn btn-lg rounded-pill px-4 py-2" style="background: linear-gradient(135deg,#FF8A00,#FFB347); color:white; border:none;">Start Free Trial</a>
+        <a href="#" class="btn btn-lg btn-outline-light rounded-pill px-4 py-2 ms-3">Book Demo</a>
+        <!-- <p class="text-white-50 mt-4 small"><i class="bi bi-clock me-1"></i> No credit card required · 14-day trial</p> -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (exactly from home, with active year) -->
+  <footer class="bg-white pt-5 border-top">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+          <img src="logo.png" alt="VectorFlow" height="28" onerror="this.src='https://placehold.co/120x28/0f172a/white?text=VectorFlow'">
+          <p class="small text-secondary mt-3 pe-lg-4">AI workflow automation for modern teams. Streamline your processes with intelligent automation.</p>
+        </div>
+        <div class="col-6 col-md-3 col-lg-2 mb-4"><h6 class="fw-bold mb-3">Product</h6><ul class="list-unstyled"><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Workflow Builder</a></li><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Integrations</a></li><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Pricing</a></li></ul></div>
+        <div class="col-6 col-md-3 col-lg-2 mb-4"><h6 class="fw-bold mb-3">Resources</h6><ul class="list-unstyled"><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Blog</a></li><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Guides</a></li><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Docs</a></li></ul></div>
+        <div class="col-6 col-md-3 col-lg-2 mb-4"><h6 class="fw-bold mb-3">Company</h6><ul class="list-unstyled"><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">About</a></li><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Careers</a></li><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Contact</a></li></ul></div>
+        <div class="col-6 col-md-3 col-lg-2 mb-4"><h6 class="fw-bold mb-3">Legal</h6><ul class="list-unstyled"><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Privacy</a></li><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Terms</a></li><li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Security</a></li></ul></div>
+      </div>
+      <hr class="my-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center py-3">
+        <span class="small text-secondary order-2 order-md-1 mt-3 mt-md-0">© 2025 VectorFlow. All rights reserved.</span>
+        <div class="social-icons order-1 order-md-2"><a href="#" class="text-secondary me-3"><i class="bi bi-twitter-x fs-5"></i></a><a href="#" class="text-secondary me-3"><i class="bi bi-linkedin fs-5"></i></a><a href="#" class="text-secondary"><i class="bi bi-github fs-5"></i></a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+
+    // navbar solid on scroll
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        nav.classList.add('navbar-solid', 'shadow-sm');
+        nav.classList.remove('navbar-transparent');
+      } else {
+        nav.classList.remove('navbar-solid', 'shadow-sm');
+        nav.classList.add('navbar-transparent');
+      }
+    });
+
+ // yearly / monthly toggle logic
+const billingToggle = document.getElementById('billingToggle');
+const starterPrice = document.getElementById('starter-price');
+const growthPrice = document.getElementById('growth-price');
+const enterprisePrice = document.getElementById('enterprise-price');
+const starterPeriod = document.getElementById('starter-period');
+const growthPeriod = document.getElementById('growth-period');
+const enterprisePeriod = document.getElementById('enterprise-period');
+
+function updatePrices() {
+  if (billingToggle.checked) { // Yearly (checked)
+    starterPrice.innerText = '$182'; // $19 * 12 * 0.8 (20% off)
+    growthPrice.innerText = '$470'; // $49 * 12 * 0.8
+    enterprisePrice.innerText = '$1430'; // $149 * 12 * 0.8
+    starterPeriod.innerText = '/year';
+    growthPeriod.innerText = '/year';
+    enterprisePeriod.innerText = '/year';
+  } else { // Monthly (unchecked)
+    starterPrice.innerText = '$19';
+    growthPrice.innerText = '$49';
+    enterprisePrice.innerText = '$149';
+    starterPeriod.innerText = '/month';
+    growthPeriod.innerText = '/month';
+    enterprisePeriod.innerText = '/month';
+  }
+}
+
+// Set initial state (Monthly as default - unchecked)
+billingToggle.checked = false;
+updatePrices();
+
+// Add event listener for toggle changes
+billingToggle.addEventListener('change', updatePrices);
+  </script>
+  <!-- additional hover class (already in style.css) -->
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Enable rewrite engine
+RewriteEngine On
+
+# Handle files with spaces in names
+Options +MultiViews
+CheckSpelling On
+
+# Remove .html extension from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Handle spaces in URLs
+RewriteCond %{THE_REQUEST} \ /(.+?)%20(.+?)\ 
+RewriteRule ^ %1-%2? [R=301,L,NE]
+
+# Redirect to correct file if extension missing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Set default character set
+AddDefaultCharset UTF-8
+
+# Prevent directory listing
+Options -Indexes

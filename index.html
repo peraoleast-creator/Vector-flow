@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- ===== INDEX.HTML (Home) ===== -->
+<!-- Primary Meta Tags -->
+<title>VectorFlow · AI workflow automation for modern teams</title>
+<meta name="title" content="VectorFlow · AI workflow automation for modern teams">
+<meta name="description" content="Automate workflows between Slack, Notion, GitHub and 50+ tools. Drag‑and‑drop builder with AI suggestions. Start free trial — no credit card required.">
+<meta name="keywords" content="AI automation, workflow automation, no-code, Slack integration, Notion automation, GitHub automation, startup tools, productivity">
+<link rel="icon" type="image/png" sizes="32x32" href="site-icon.png">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<!-- <meta property="og:url" content="https://www.vectorflow.ai"> -->
+<meta property="og:title" content="VectorFlow · AI workflow automation">
+<meta property="og:description" content="Connect your tools and eliminate repetitive work. Visual builder, AI suggestions, real‑time monitoring.">
+<!-- <meta property="og:image" content="https://www.vectorflow.ai/assets/og-home.jpg"> -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter -->
+<!-- <meta property="twitter:card" content="summary_large_image"> -->
+<!-- <meta property="twitter:url" content="https://www.vectorflow.ai"> -->
+<meta property="twitter:title" content="VectorFlow · AI workflow automation">
+<meta property="twitter:description" content="Automate your workflows with AI. Connect Slack, Notion, GitHub in minutes.">
+<!-- <meta property="twitter:image" content="https://www.vectorflow.ai/assets/twitter-home.jpg"> -->
+
+<!-- Additional SEO -->
+<meta name="robots" content="index, follow">
+<!-- <link rel="canonical" href="https://www.vectorflow.ai"> -->
+<meta name="author" content="VectorFlow">
+<meta name="language" content="English">
+  <!-- Bootstrap 5 + Icons + primary theme -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <!-- Google Fonts: Inter (primary) + Space Grotesk (accents) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- AOS (animate on scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- custom styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>/* inline critical styles for demo – in real project would be in style.css */</style>
+</head>
+<body>
+  <!-- Sticky navbar with transparent / solid effect (js handles scroll) -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="index">
+        <img src="logo.png" alt="VectorFlow" height="32" class="d-inline-block align-text-top" onerror="this.src='https://placehold.co/140x32/0f172a/white?text=VectorFlow'; this.onerror=null;">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 fw-medium">
+          <li class="nav-item"><a class="nav-link active" href="index">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="product">Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="integrations">Integrations</a></li>
+          <li class="nav-item"><a class="nav-link" href="pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="resources">Resources</a></li>
+          <li class="nav-item"><a class="nav-link" href="about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
+        </ul>
+        <div class="d-flex gap-2">
+          <a href="#" class="btn btn-outline-secondary rounded-pill px-4">Log in</a>
+          <a href="#" class="btn btn-primary rounded-pill px-4" style="background: linear-gradient(135deg, #FF8A00, #FFB347); border: none;">Start trial</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HOMEPAGE -->
+  <main>
+    <!-- Hero section (transparent overlay) -->
+ <section class="hero-section pt-5">
+  <div class="container">
+    <div class="row align-items-center min-vh-100 py-5">
+      <!-- Full width text column (100%) -->
+      <div class="col-12 mb-5 hero-col-1" data-aos="fade-up" data-aos-duration="800">
+        <div class="text-center">
+          <h1 class="display-3 fw-bold mb-3" style="line-height: 1.2;">Automate Your Workflows <span style="background: linear-gradient(135deg,#FF8A00,#FFB347); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">with AI</span></h1>
+          <p class="lead text-secondary-emphasis mb-4 mx-auto" style="max-width: 800px;">VectorFlow connects your tools and eliminates repetitive work so your team can focus on building great products.</p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+            <a href="#" class="btn btn-lg btn-primary rounded-pill px-4 py-2" style="background: linear-gradient(135deg, #FF8A00, #FFB347); border: none;">Start Free Trial</a>
+            <a href="#" class="btn btn-lg btn-outline-secondary rounded-pill px-4 py-2">View Demo</a>
+          </div>
+          <!-- floating integration icons (static for simplicity, but animated via css) -->
+          <div class="integration-badge-group justify-content-center mt-3">
+            <span class="badge bg-light text-dark p-3 me-2 floating-icon"><i class="bi bi-slack"></i> Slack</span>
+            <span class="badge bg-light text-dark p-3 me-2 floating-icon"><i class="bi bi-file-text"></i> Notion</span>
+            <span class="badge bg-light text-dark p-3 me-2 floating-icon"><i class="bi bi-github"></i> GitHub</span>
+            <span class="badge bg-light text-dark p-3 me-2 floating-icon"><i class="bi bi-google"></i> GWorkspace</span>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Full width dashboard mockup column (100%) -->
+<div class="col-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+  <!-- LARGE DASHBOARD MOCKUP (workflow canvas style) -->
+  <div class="dashboard-xl bg-white p-2 p-sm-3 p-xl-4 rounded-4 w-100" style="box-shadow: 0 30px 60px -15px rgba(0,0,0,0.3);">
+    <!-- Window controls with filename -->
+    <div class="d-flex gap-2 mb-2 mb-sm-3 align-items-center">
+      <span class="bg-danger rounded-circle" style="width:10px;height:10px;"></span>
+      <span class="bg-warning rounded-circle" style="width:10px;height:10px;"></span>
+      <span class="bg-success rounded-circle" style="width:10px;height:10px;"></span>
+      <span class="ms-auto text-muted small"><i class="bi bi-folder2-open me-1"></i> <span class="d-none d-sm-inline">main_workflow.json</span><span class="d-sm-none">workflow</span></span>
+    </div>
+    
+    <!-- workflow builder nodes + glowing lines with enhanced canvas -->
+    <div class="workflow-canvas p-2 p-sm-3 p-md-4" style="background: #f9fafc; background-image: 
+      radial-gradient(circle at 10px 10px, rgba(255,138,0,0.03) 2px, transparent 2px), 
+      linear-gradient(to right, #f1f4f9 1px, transparent 1px),
+      linear-gradient(to bottom, #f1f4f9 1px, transparent 1px);
+      background-size: 20px 20px, 20px 20px, 20px 20px;
+      border-radius: 16px;
+      min-height: auto;
+      position: relative;
+      overflow: hidden;">
+      
+      <!-- Workflow visualization area -->
+      <div class="position-relative" style="min-height: auto;">
+        <!-- Connection lines SVG style - hidden on mobile -->
+        <div class="position-absolute w-100 h-100 d-none d-md-block" style="z-index: 1; pointer-events: none;">
+          <svg width="100%" height="100%" style="position: absolute; top: 0; left: 0;">
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+                <path d="M0,0 L10,5 L0,10 L2,5 Z" fill="#FF8A00" />
+              </marker>
+            </defs>
+            <!-- Line from Slack to AI -->
+            <line x1="15%" y1="20%" x2="35%" y2="20%" stroke="#FF8A00" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)" />
+            <!-- Line from AI to Notion -->
+            <line x1="45%" y1="20%" x2="65%" y2="20%" stroke="#FF8A00" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)" />
+            <!-- Line from Notion to GitHub -->
+            <line x1="75%" y1="20%" x2="95%" y2="20%" stroke="#FF8A00" stroke-width="2" stroke-dasharray="5,3" marker-end="url(#arrowhead)" />
+            <!-- Branch line -->
+            <line x1="55%" y1="25%" x2="55%" y2="45%" stroke="#FFB347" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)" />
+          </svg>
+        </div>
+        
+        <!-- Main workflow nodes - responsive grid -->
+        <div class="d-flex flex-column flex-sm-row flex-wrap align-items-center justify-content-center justify-content-lg-between gap-2 gap-sm-3 position-relative" style="z-index: 2;">
+          <!-- Slack Node -->
+          <div class="step-circle d-flex flex-column align-items-center p-2 p-sm-3 w-100 w-sm-auto" style="background:white; border:2px solid #e2e8f0; min-width: auto; width: 100%; max-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <i class="bi bi-slack fs-3 fs-sm-2 mb-1 mb-sm-2" style="color:#4A154B;"></i>
+            <span class="fw-semibold small small-sm">New message</span>
+            <span class="badge bg-primary bg-opacity-10 text-primary mt-1 mt-sm-2 small">trigger</span>
+            <div class="small text-muted mt-1 d-none d-sm-block">#leads channel</div>
+          </div>
+          
+          <!-- AI Processor Node (enhanced) -->
+          <div class="step-circle ai d-flex flex-column align-items-center p-2 p-sm-3 w-100 w-sm-auto" style="background: linear-gradient(145deg,#FF8A00,#FFB347); color:white; min-width: auto; width: 100%; max-width: 200px; box-shadow: 0 8px 20px rgba(255,138,0,0.3); transform: scale(1.02) scale-sm(1.05);">
+            <i class="bi bi-cpu fs-3 fs-sm-2 mb-1 mb-sm-2"></i>
+            <span class="fw-semibold small small-sm">AI processor</span>
+            <span class="badge bg-white text-dark mt-1 mt-sm-2 small">GPT-4 · 98%</span>
+            <div class="small text-white-50 mt-1 d-none d-sm-block">sentiment analysis</div>
+            <span class="position-absolute top-0 start-100 translate-middle p-1 p-sm-2 bg-success border border-light rounded-circle d-none d-sm-block">
+              <span class="visually-hidden">active</span>
+            </span>
+          </div>
+          
+          <!-- Notion Node -->
+          <div class="step-circle d-flex flex-column align-items-center p-2 p-sm-3 w-100 w-sm-auto" style="background:white; border:2px solid #e2e8f0; min-width: auto; width: 100%; max-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <i class="bi bi-file-text fs-3 fs-sm-2 mb-1 mb-sm-2" style="color:#000;"></i>
+            <span class="fw-semibold small small-sm">Notion DB</span>
+            <span class="badge bg-secondary bg-opacity-10 text-secondary mt-1 mt-sm-2 small">database</span>
+            <div class="small text-muted mt-1 d-none d-sm-block">"Leads" table</div>
+          </div>
+          
+          <!-- GitHub Node -->
+          <div class="step-circle d-flex flex-column align-items-center p-2 p-sm-3 w-100 w-sm-auto" style="background:white; border:2px solid #e2e8f0; min-width: auto; width: 100%; max-width: 200px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+            <i class="bi bi-github fs-3 fs-sm-2 mb-1 mb-sm-2"></i>
+            <span class="fw-semibold small small-sm">GitHub Issue</span>
+            <span class="badge bg-success bg-opacity-10 text-success mt-1 mt-sm-2 small">action</span>
+            <div class="small text-muted mt-1 d-none d-sm-block">auto-create</div>
+          </div>
+        </div>
+        
+        <!-- Branch node (responsive) -->
+        <div class="position-relative mt-3 mt-sm-4" style="z-index: 2;">
+          <div class="step-circle d-flex align-items-center justify-content-center p-2 mx-auto" style="background: #FFF3E0; border: 2px dashed #FF8A00; max-width: 100%; width: fit-content;">
+            <i class="bi bi-diagram-3 me-1 me-sm-2" style="color:#FF8A00;"></i>
+            <span class="fw-medium small small-sm">Branch: High priority → Slack DM</span>
+            <i class="bi bi-diagram-3 ms-1 ms-sm-2" style="color:#FF8A00;"></i>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Enhanced AI suggestion chip - responsive -->
+      <div class="mt-3 mt-sm-4 p-2 p-sm-3 ai-chip rounded-3 d-flex flex-column flex-sm-row align-items-start align-items-sm-center" style="background: linear-gradient(135deg, rgba(255,138,0,0.1), rgba(255,179,71,0.1)); border-left: 4px solid #FF8A00; border-radius: 12px;">
+        <div class="bg-white rounded-circle p-1 p-sm-2 me-0 me-sm-3 mb-2 mb-sm-0 shadow-sm">
+          <i class="bi bi-stars" style="color:#FF8A00; font-size: 1rem;"></i>
+        </div>
+        <div class="flex-grow-1 mb-2 mb-sm-0">
+          <div class="d-flex align-items-center flex-wrap">
+            <span class="fw-semibold me-2 small">AI suggestion</span>
+            <span class="badge bg-light text-dark small">just now</span>
+          </div>
+          <span class="small small-sm d-block d-sm-inline">Extract summary and label as “customer-request” · 85% confidence</span>
+        </div>
+        <button class="btn btn-sm btn-outline-warning rounded-pill px-2 px-sm-3 w-100 w-sm-auto">Apply</button>
+      </div>
+      
+      <!-- Enhanced mini activity graph - responsive -->
+      <div class="mt-3 mt-sm-4">
+        <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap">
+          <span class="fw-semibold small small-sm"><i class="bi bi-activity me-1 me-sm-2" style="color:#FF8A00;"></i> Activity (last 24h)</span>
+          <span class="badge bg-light text-dark small"><i class="bi bi-arrow-up-short text-success"></i> +22%</span>
+        </div>
+        <div class="d-flex justify-content-between align-items-end gap-1" style="height: 60px;">
+          <div class="d-flex flex-column align-items-center" style="width: 12%;">
+            <div style="height: 20px; width: 100%; background: linear-gradient(180deg,#FF8A00,#FFB347); border-radius: 4px 4px 0 0;"></div>
+            <span class="small text-muted mt-1 d-none d-sm-block">00:00</span>
+          </div>
+          <div class="d-flex flex-column align-items-center" style="width: 12%;">
+            <div style="height: 32px; width: 100%; background: linear-gradient(180deg,#FF8A00,#FFB347); border-radius: 4px 4px 0 0;"></div>
+            <span class="small text-muted mt-1 d-none d-sm-block">06:00</span>
+          </div>
+          <div class="d-flex flex-column align-items-center" style="width: 12%;">
+            <div style="height: 15px; width: 100%; background: linear-gradient(180deg,#FF8A00,#FFB347); border-radius: 4px 4px 0 0;"></div>
+            <span class="small text-muted mt-1 d-none d-sm-block">12:00</span>
+          </div>
+          <div class="d-flex flex-column align-items-center" style="width: 12%;">
+            <div style="height: 40px; width: 100%; background: linear-gradient(180deg,#FF8A00,#FFB347); border-radius: 4px 4px 0 0;"></div>
+            <span class="small text-muted mt-1 d-none d-sm-block">18:00</span>
+          </div>
+          <div class="d-flex flex-column align-items-center" style="width: 12%;">
+            <div style="height: 28px; width: 100%; background: linear-gradient(180deg,#FF8A00,#FFB347); border-radius: 4px 4px 0 0;"></div>
+            <span class="small text-muted mt-1 d-none d-sm-block">now</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Stats footer - responsive -->
+      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center mt-3 mt-sm-4 pt-2 pt-sm-3 border-top gap-2 gap-sm-0">
+        <div class="d-flex gap-2 gap-sm-3 flex-wrap justify-content-center">
+          <div><span class="fw-bold small">1,247</span> <span class="small text-secondary d-none d-sm-inline">executions</span></div>
+          <div><span class="fw-bold small">98.3%</span> <span class="small text-secondary d-none d-sm-inline">success</span></div>
+          <div><span class="fw-bold small">128ms</span> <span class="small text-secondary d-none d-sm-inline">avg</span></div>
+        </div>
+        <div class="d-flex gap-2">
+          <span class="badge bg-light text-dark p-1 p-sm-2 small"><i class="bi bi-lightning-charge me-1" style="color:#FF8A00;"></i> <span class="d-none d-sm-inline">3 active</span></span>
+          <span class="badge bg-success bg-opacity-10 text-success p-1 p-sm-2 small"><i class="bi bi-check-circle me-1"></i> <span class="d-none d-sm-inline">online</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- Trusted by - Enhanced with logo cards -->
+<section class="py-5 bg-light" style="background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);">
+  <div class="container">
+    <div class="text-center mb-5" data-aos="fade-up">
+      <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill px-3 py-2 mb-3">
+        <i class="bi bi-building me-2"></i>Trusted by industry leaders
+      </span>
+      <h3 class="fw-bold mb-2">Join 10,000+ teams automating with VectorFlow</h3>
+      <p class="text-secondary">Companies of all sizes trust us to streamline their workflows</p>
+    </div>
+    
+    <!-- Logo grid - responsive -->
+    <div class="row g-4 justify-content-center align-items-center">
+      <!-- Linear -->
+      <div class="col-12 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="100">
+        <div class="trusted-logo-card p-4 bg-white rounded-4 shadow-sm h-100 d-flex flex-column align-items-center justify-content-center" 
+             style="transition: all 0.3s ease; border: 1px solid rgba(255,138,0,0.1); min-height: 120px;">
+          <div class="mb-2">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#FF8A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17L12 22L22 17" stroke="#FF8A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 12L12 17L22 12" stroke="#FF8A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="fw-semibold" style="color: #0f172a;">Linear</span>
+          <small class="text-secondary text-center mt-1">Issue tracking</small>
+        </div>
+      </div>
+      
+      <!-- Vercel -->
+      <div class="col-12 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="150">
+        <div class="trusted-logo-card p-4 bg-white rounded-4 shadow-sm h-100 d-flex flex-column align-items-center justify-content-center"
+             style="transition: all 0.3s ease; border: 1px solid rgba(255,138,0,0.1); min-height: 120px;">
+          <div class="mb-2">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 12H6L12 6L18 12H22L12 2Z" fill="#FF8A00" fill-opacity="0.8"/>
+              <path d="M12 22L2 12H6L12 18L18 12H22L12 22Z" fill="#FFB347"/>
+            </svg>
+          </div>
+          <span class="fw-semibold" style="color: #0f172a;">Vercel</span>
+          <small class="text-secondary text-center mt-1">Deployment</small>
+        </div>
+      </div>
+      
+      <!-- Raycast -->
+      <div class="col-12 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="200">
+        <div class="trusted-logo-card p-4 bg-white rounded-4 shadow-sm h-100 d-flex flex-column align-items-center justify-content-center"
+             style="transition: all 0.3s ease; border: 1px solid rgba(255,138,0,0.1); min-height: 120px;">
+          <div class="mb-2">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="#FF8A00" stroke-width="2"/>
+              <path d="M8 12L10 14L16 8" stroke="#FF8A00" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="fw-semibold" style="color: #0f172a;">Raycast</span>
+          <small class="text-secondary text-center mt-1">Productivity</small>
+        </div>
+      </div>
+      
+      <!-- Ploom -->
+      <div class="col-12 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="250">
+        <div class="trusted-logo-card p-4 bg-white rounded-4 shadow-sm h-100 d-flex flex-column align-items-center justify-content-center"
+             style="transition: all 0.3s ease; border: 1px solid rgba(255,138,0,0.1); min-height: 120px;">
+          <div class="mb-2">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 4H20V20H4V4Z" stroke="#FF8A00" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 8H16V16H8V8Z" fill="#FF8A00" fill-opacity="0.2" stroke="#FF8A00" stroke-width="2"/>
+            </svg>
+          </div>
+          <span class="fw-semibold" style="color: #0f172a;">Ploom</span>
+          <small class="text-secondary text-center mt-1">Analytics</small>
+        </div>
+      </div>
+      
+      <!-- WorkOS -->
+      <div class="col-12 col-md-4 col-lg-2" data-aos="fade-up" data-aos-delay="300">
+        <div class="trusted-logo-card p-4 bg-white rounded-4 shadow-sm h-100 d-flex flex-column align-items-center justify-content-center"
+             style="transition: all 0.3s ease; border: 1px solid rgba(255,138,0,0.1); min-height: 120px;">
+          <div class="mb-2">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 9H21L12 21L3 9Z" fill="#FF8A00" fill-opacity="0.2" stroke="#FF8A00" stroke-width="2"/>
+              <circle cx="12" cy="9" r="2" fill="#FF8A00"/>
+            </svg>
+          </div>
+          <span class="fw-semibold" style="color: #0f172a;">WorkOS</span>
+          <small class="text-secondary text-center mt-1">Identity</small>
+        </div>
+      </div>
+      
+      <!-- Additional company (shows on larger screens) -->
+      <div class="col-12 col-md-4 col-lg-2 d-lg-block" data-aos="fade-up" data-aos-delay="350">
+        <div class="trusted-logo-card p-4 bg-white rounded-4 shadow-sm h-100 d-flex flex-column align-items-center justify-content-center"
+             style="transition: all 0.3s ease; border: 1px solid rgba(255,138,0,0.1); min-height: 120px; background: linear-gradient(135deg, #fff, #fef7f0);">
+          <div class="mb-2">
+            <i class="bi bi-plus-circle" style="color: #FF8A00; font-size: 1.8rem;"></i>
+          </div>
+          <span class="fw-semibold" style="color: #0f172a;">Your Company</span>
+          <small class="text-secondary text-center mt-1">Join them</small>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Stats row -->
+    <div class="row mt-5 pt-4 g-4 text-center" data-aos="fade-up">
+      <div class="col-6 col-md-3">
+        <div class="p-3">
+          <h4 class="fw-bold mb-1" style="color: #FF8A00;">10k+</h4>
+          <small class="text-secondary">Active teams</small>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-3">
+          <h4 class="fw-bold mb-1" style="color: #FF8A00;">500k+</h4>
+          <small class="text-secondary">Workflows run</small>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-3">
+          <h4 class="fw-bold mb-1" style="color: #FF8A00;">99.9%</h4>
+          <small class="text-secondary">Uptime SLA</small>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="p-3">
+          <h4 class="fw-bold mb-1" style="color: #FF8A00;">24/7</h4>
+          <small class="text-secondary">Support</small>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Testimonial snippet -->
+    <div class="text-center mt-5 pt-3" data-aos="fade-up">
+      <div class="d-inline-block bg-white rounded-pill py-2 px-4 shadow-sm">
+        <div class="d-flex align-items-center gap-2">
+          <div class="d-flex">
+            <img src="https://placehold.co/24x24/FF8A00/white?text=✓" class="rounded-circle" width="24" height="24" alt="check">
+            <img src="https://placehold.co/24x24/FFB347/white?text=✓" class="rounded-circle ms-n2" width="24" height="24" alt="check">
+          </div>
+          <span class="small fw-medium">Join Linear, Vercel, and thousands more</span>
+          <i class="bi bi-arrow-right" style="color: #FF8A00;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Features Overview (5 cards) -->
+    <section class="py-5" id="features">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Designed for modern automation</h2>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="100"><div class="card h-100 border-0 shadow-sm hover-lift"><div class="card-body"><i class="bi bi-diagram-3 fs-1 mb-3" style="color:#FF8A00;"></i><h5>Workflow Builder</h5><p class="text-secondary">Drag‑and‑drop automation builder with conditional logic.</p></div></div></div>
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="200"><div class="card h-100 border-0 shadow-sm hover-lift"><div class="card-body"><i class="bi bi-puzzle fs-1 mb-3" style="color:#FF8A00;"></i><h5>App Integrations</h5><p class="text-secondary">Connect Slack, Notion, GitHub, and 50+ tools.</p></div></div></div>
+          <div class="col-md-6 col-lg-4" data-aos="zoom-in-up" data-aos-delay="300"><div class="card h-100 border-0 shadow-sm hover-lift"><div class="card-body"><i class="bi bi-bar-chart-steps fs-1 mb-3" style="color:#FF8A00;"></i><h5>Real‑Time Monitoring</h5><p class="text-secondary">Live workflow activity and execution logs.</p></div></div></div>
+          <div class="col-md-6 col-lg-6" data-aos="zoom-in-up" data-aos-delay="400"><div class="card h-100 border-0 shadow-sm hover-lift"><div class="card-body"><i class="bi bi-stars fs-1 mb-3" style="color:#FF8A00;"></i><h5>AI Automation Suggestions</h5><p class="text-secondary">Smart recommendations to optimize repetitive tasks.</p></div></div></div>
+          <div class="col-md-6 col-lg-6" data-aos="zoom-in-up" data-aos-delay="500"><div class="card h-100 border-0 shadow-sm hover-lift"><div class="card-body"><i class="bi bi-people fs-1 mb-3" style="color:#FF8A00;"></i><h5>Team Collaboration</h5><p class="text-secondary">Shared workflows, permissions, and comments.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Workflow demo section (animated builder) -->
+    <section class="py-5 bg-white">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-4" data-aos="fade-right">
+            <h2 class="fw-bold mb-3">From idea to automation in minutes</h2>
+            <p class="text-secondary">Visual workflow builder: trigger → AI processor → actions. See the flow in real time.</p>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left">
+            <div class="workflow-animation-panel p-4 bg-white shadow rounded-4">
+              <div class="d-flex workflow-steps">
+                <div class="step-circle">Slack</div><div class="step-arrow glowing">→</div>
+                <div class="step-circle ai">AI</div><div class="step-arrow glowing">→</div>
+                <div class="step-circle">Notion</div><div class="step-arrow glowing">→</div>
+                <div class="step-circle">GitHub</div>
+              </div>
+              <div class="small text-secondary mt-3"><i class="bi bi-lightning-charge-fill" style="color:#FF8A00;"></i> AI suggests: add label 'auto' based on content</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Integrations grid (partial) -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5" data-aos="fade-up">Native integrations</h2>
+        <div class="row g-4">
+          <div class="col-md-4 col-12"><div class="card integration-card p-3 border-0 shadow-sm"><i class="bi bi-slack fs-2 mb-2"></i> <h6>Slack</h6> <p class="small">messages, channels</p> <a href="#" class="stretched-link">Connect</a></div></div>
+          <div class="col-md-4 col-12"><div class="card integration-card p-3 border-0 shadow-sm"><i class="bi bi-file-text fs-2 mb-2"></i> <h6>Notion</h6> <p class="small">pages, databases</p> <a href="#" class="stretched-link">Connect</a></div></div>
+          <div class="col-md-4 col-12"><div class="card integration-card p-3 border-0 shadow-sm"><i class="bi bi-github fs-2 mb-2"></i> <h6>GitHub</h6> <p class="small">issues, PRs</p> <a href="#" class="stretched-link">Connect</a></div></div>
+          <div class="col-md-4 col-12"><div class="card integration-card p-3 border-0 shadow-sm"><i class="bi bi-google fs-2 mb-2"></i> <h6>GWorkspace</h6> <p class="small">calendar, gmail</p> <a href="#" class="stretched-link">Connect</a></div></div>
+          <div class="col-md-4 col-12"><div class="card integration-card p-3 border-0 shadow-sm"><i class="bi bi-trello fs-2 mb-2"></i> <h6>Trello</h6> <p class="small">cards, boards</p> <a href="#" class="stretched-link">Connect</a></div></div>
+          <div class="col-md-4 col-12"><div class="card integration-card p-3 border-0 shadow-sm"><i class="bi bi-lightning-charge fs-2 mb-2"></i> <h6>Zapier</h6> <p class="small">thousands of apps</p> <a href="#" class="stretched-link">Connect</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard preview section (SaaS UI) -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="dashboard-preview bg-white p-4 shadow-lg rounded-4" data-aos="zoom-y-out">
+              <div class="d-flex justify-content-between"><span><i class="bi bi-graph-up me-2"></i> automation runs</span> <span class="badge bg-success">+32% this week</span></div>
+              <div class="progress my-3" style="height:8px;"><div class="progress-bar bg-gradient" style="width:70%; background:linear-gradient(90deg,#FF8A00,#FFB347);"></div></div>
+              <div class="row mt-4">
+                <div class="col-6"><small>executions</small><br><strong>2.4k</strong></div>
+                <div class="col-6"><small>success</small><br><strong>98%</strong></div>
+              </div>
+              <div class="bg-light p-2 rounded mt-3"><i class="bi bi-robot me-1"></i> AI insight: “Slack → Notion flow can be batched”</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials carousel -->
+    <section class="py-5 bg-light">
+      <div class="container">
+        <h2 class="text-center fw-bold mb-5">Loved by founders</h2>
+        <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                  <i class="bi bi-quote display-1 opacity-25"></i>
+                  <p class="lead">“VectorFlow saved us 20h/week on manual data entry. The AI suggestions are magic.”</p>
+                  <div class="d-flex align-items-center justify-content-center mt-4"><img src="https://placehold.co/48x48" class="rounded-circle me-2" width="48" height="48" alt="avatar"><div><strong>Riley Jones</strong><br>Founder, Optikit</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                  <i class="bi bi-quote display-1 opacity-25"></i>
+                  <p class="lead">“Integrates with everything we use. Finally an automation tool that feels modern.”</p>
+                  <div class="d-flex align-items-center justify-content-center mt-4"><img src="https://placehold.co/48x48" class="rounded-circle me-2" width="48" height="48" alt="avatar"><div><strong>Sam Lee</strong><br>CTO, Swyft</div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon bg-dark rounded-circle"></span></button>
+          <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><span class="carousel-control-next-icon bg-dark rounded-circle"></span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-5 position-relative overflow-hidden" style="background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);">
+      <div class="container text-center py-5">
+        <h2 class="display-5 fw-bold text-white mb-4" data-aos="fade-up">Start Automating Your Workflows Today</h2>
+        <a href="#" class="btn btn-lg rounded-pill px-4 py-2" style="background: linear-gradient(135deg,#FF8A00,#FFB347); color:white; border:none;">Start Free Trial</a>
+        <a href="#" class="btn btn-lg btn-outline-light rounded-pill px-4 py-2 ms-3">Book Demo</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white pt-5 border-top">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Company info - full width on mobile -->
+            <div class="col-12 col-lg-3 mb-4 mb-lg-0">
+                <img src="logo.png" alt="VectorFlow" height="28" onerror="this.src='https://placehold.co/120x28/0f172a/white?text=VectorFlow'">
+                <p class="small text-secondary mt-3 pe-lg-4">AI workflow automation for modern teams. Streamline your processes with intelligent automation.</p>
+            </div>
+            
+            <!-- Link columns - stack on mobile, 2 columns on tablet -->
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+                <h6 class="fw-bold mb-3">Product</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Workflow Builder</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Integrations</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Pricing</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+                <h6 class="fw-bold mb-3">Resources</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Blog</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Guides</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Docs</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+                <h6 class="fw-bold mb-3">Company</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">About</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Careers</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-6 col-md-3 col-lg-2 mb-4">
+                <h6 class="fw-bold mb-3">Legal</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Privacy</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Terms</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr class="my-4">
+        
+        <!-- Bottom bar - stacks on mobile -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-center py-3">
+            <span class="small text-secondary order-2 order-md-1 mt-3 mt-md-0">© 2025 VectorFlow. All rights reserved.</span>
+            <div class="social-icons order-1 order-md-2">
+                <a href="#" class="text-secondary me-3"><i class="bi bi-twitter-x fs-5"></i></a>
+                <a href="#" class="text-secondary me-3"><i class="bi bi-linkedin fs-5"></i></a>
+                <a href="#" class="text-secondary"><i class="bi bi-github fs-5"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+  <!-- Bootstrap JS + AOS + custom -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ once: true, duration: 700 });
+    // sticky navbar background change
+    window.addEventListener('scroll', function() {
+      const nav = document.getElementById('mainNav');
+      if (window.scrollY > 50) {
+        nav.classList.add('navbar-solid', 'shadow-sm');
+        nav.classList.remove('navbar-transparent');
+      } else {
+        nav.classList.remove('navbar-solid', 'shadow-sm');
+        nav.classList.add('navbar-transparent');
+      }
+    });
+    // additional micro interactions: hover-lift already in css
+  </script>
+  <!-- separate animation class style block (would be in style.css) -->
+
+  <!-- additional empty pages to satisfy multi-page structure (in real build separate  files) -->
+  <!-- hidden note: product, integrations etc would reuse same layout with appropriate content -->
+  <div style="display: none;">product | integrations | pricing | resources | about | contact</div>
+</body>
+</html>
